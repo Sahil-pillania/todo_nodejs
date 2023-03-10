@@ -1,2 +1,170 @@
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif, Courier, monospace;
+}
 .main {
+  width: 100%;
+  height: 100vh;
+  background: #808080;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container {
+  width: 800px;
+  height: auto;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+/* // title -------------------- */
+.title {
+  font-size: 2rem;
+  color: #808080;
+  font-weight: bold;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+  padding: 10px;
+}
+/* // Description box ------------------ */
+.descriptionBox {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  border-top: 1px solid #808080;
+}
+.descriptionBox span {
+  font-size: 15px;
+  color: #808080;
+}
+.descriptionBox input {
+  border: none;
+  outline: none;
+}
+/*// box -------------------------- */
+.box {
+  display: flex;
+  /* flex-wrap: wrap; */
+  position: relative;
+  width: 100%;
+  border-top: 1px solid #808080;
+  border-bottom: 1px solid #808080;
+}
+.categoryBox {
+  width: 50%;
+  /* background-color: red; */
+  padding: 0.6rem;
+  display: flex;
+  flex-direction: column;
+  color: #808080;
+  border-right: 1px solid #808080;
+}
+.categoryBox select {
+  height: 30px;
+  border: none;
+  outline: none;
+}
+.dateBox {
+  width: 50%;
+  padding: 0.6rem;
+  display: flex;
+  flex-direction: column;
+  color: #808080;
+}
+.dateBox input {
+  height: 30px;
+  border: none;
+  outline: none;
+}
+/* // Buttons ----------------------- */
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  position: relative;
+  /* width: 100%; */
+  border-bottom: 1px solid #808080;
+}
+.add,
+.delete {
+  padding: 1rem;
+  cursor: pointer;
+  min-width: 130px;
+}
+.add {
+  background-color: #494949;
+  color: #fff;
+  text-align: center;
+}
+.add i {
+  font-weight: bold;
+}
+.delete {
+  background-color: #ee351e;
+  color: #fff;
+  margin-left: 5px;
+}
+.add:hover {
+  background-color: #323232;
+}
+.delete:hover {
+  background-color: #dd1a00;
+}
+/* // todos area --------------------------- */
+.allTodos {
+  display: flex;
+  flex-direction: column;
+  height: 250px;
+  overflow-y: auto;
+}
+.allTodos::-webkit-scrollbar {
+  display: none;
+}
+/* // Individual todo ------------------------- */
+.todo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border-bottom: 1px solid #808080;
+}
+.todo .left {
+  display: flex;
+}
+.todo .left .form-check {
+  padding: 1rem;
+}
+.todo .left .form-check input {
+  width: 19px;
+  height: 19px;
+  border-radius: 2px;
+}
+.todo .left .desc {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+  color: #808080;
+}
+.todo .left .desc .name {
+  max-width: 500px;
+}
+.todo .left .desc .date {
+  display: flex;
+  align-items: flex-start;
+  font-size: 14px;
+}
+.todo .left .desc .date i {
+  margin-right: 10px;
+}
+.todo .right .categoryButton {
+  padding: 0.7rem;
+  background: red;
+  color: white;
+  transition: transform 0.3s linear;
+}
+.todo .right .categoryButton:hover {
+  transform: scale(1.03);
 }
