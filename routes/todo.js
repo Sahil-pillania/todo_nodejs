@@ -11,9 +11,7 @@ router.get("/", (req, res) => {
   res.render("Index");
 });
 
-router.get("/save", (req, res) => {
-  res.send("Birds home page");
-});
+router.get("/save", (req, res) => {});
 // define the about route
 router.get("/about", (req, res) => {
   res.send("About birds");
