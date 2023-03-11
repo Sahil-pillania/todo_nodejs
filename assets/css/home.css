@@ -164,7 +164,7 @@ body {
 }
 .todo .right .categoryButton {
   padding: 0.7rem;
-  background: red;
+  background: purple;
   color: white;
   transition: transform 0.3s linear;
   min-width: 62px;
