@@ -7,6 +7,7 @@ body {
   height: 100vh;
   background: #808080;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
@@ -89,9 +90,10 @@ body {
 }
 .add,
 .delete {
-  padding: 1rem;
+  padding: 1.2rem;
   cursor: pointer;
   min-width: 130px;
+  border: none;
 }
 .add {
   background-color: #494949;
@@ -116,7 +118,8 @@ body {
 .allTodos {
   display: flex;
   flex-direction: column;
-  height: 250px;
+  max-height: 250px;
+  min-height: 60px;
   overflow-y: auto;
 }
 .allTodos::-webkit-scrollbar {
@@ -164,7 +167,12 @@ body {
   background: red;
   color: white;
   transition: transform 0.3s linear;
+  min-width: 62px;
+  text-align: center;
 }
 .todo .right .categoryButton:hover {
   transform: scale(1.03);
+}
+.form2 {
+  position: absolute;
 }
