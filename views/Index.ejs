@@ -8,6 +8,7 @@
     <title>Todo app | Node js
 
     </title>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
         integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -16,17 +17,18 @@
 
 <body>
     <div class="main">
-        <form class="container" action="#">
+        <form class="container" method="post" action="http://localhost:3000/save">
             <div class="title">Todo App</div>
             <div class="descriptionBox">
                 <span>Description</span>
-                <input type="text" placeholder="What do you need to do?">
+                <input type="text" name="description" id="description" value="" placeholder="What do you need to do?"
+                    autocomplete="off" required>
             </div>
             <div class="box">
                 <div class="categoryBox">
-                    <!-- <span>Category</span> -->
+
                     <label for="cat">Category</label>
-                    <select name="cat" id="cat">
+                    <select name="cat" value="" id="cat" required>
                         <option value="">Choose a category</option>
                         <option value="Personal">Personal</option>
                         <option value="Work">Work</option>
@@ -38,111 +40,51 @@
                 </div>
                 <div class="dateBox">
                     <span>Due Date</span>
-                    <input type="date" name="" id="">
+                    <input type="date" name="date" value="" id="date" required>
                 </div>
             </div>
             <div class="buttons">
-                <div class="add">
+                <button type="submit" class="add saveItems">
                     <i class="fa-solid fa-plus"></i>
                     <span>ADD TASK</span>
-                </div>
-                <div class="delete">
+                </button>
+                <button class="delete deleteItems">
+
                     <i class="fa-solid fa-trash-can"></i>
                     <span>DELETE TASKS</span>
-                </div>
+
+                </button>
             </div>
             <div class="allTodos">
-                <div class="todo">
-                    <div class="left">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="" checked>
+                <% for(var i=0; i<data.length; i++) {%>
+                    <div class="todo">
+                        <div class="left">
 
+                            <div class="form-check">
+                                <input class="form-check-input" name="selection" type="checkbox" value=""
+                                    id='<%= data[i]._id %>'>
+
+                            </div>
+                            <div class="desc">
+                                <div class="name">
+                                    <%= data[i].description %>
+                                </div>
+                                <div class="date">
+                                    <i class="fa-solid fa-calendar-days"></i>
+                                    <div class="dateItem">
+                                        <%= data[i].date %>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="desc">
-                            <div class="name">Name of the todo item</div>
-                            <div class="date">
-                                <i class="fa-solid fa-calendar-days"></i>
-                                <div class="dateItem">MAY 02 2019</div>
+                        <div class="right">
+                            <div class="categoryButton">
+                                <%= data[i].category %>
                             </div>
                         </div>
                     </div>
-                    <div class="right">
-                        <div class="categoryButton">Others</div>
-                    </div>
-                </div>
-                <!-- // tamplates  -->
-                <div class="todo">
-                    <div class="left">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="" checked>
+                    <% } %>
 
-                        </div>
-                        <div class="desc">
-                            <div class="name">Name of the todo item</div>
-                            <div class="date">
-                                <i class="fa-solid fa-calendar-days"></i>
-                                <div class="dateItem">25/03/1994</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="right">
-                        <div class="categoryButton">Others</div>
-                    </div>
-                </div>
-                <div class="todo">
-                    <div class="left">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="" checked>
-
-                        </div>
-                        <div class="desc">
-                            <div class="name">Name of the todo item</div>
-                            <div class="date">
-                                <i class="fa-solid fa-calendar-days"></i>
-                                <div class="dateItem">25/03/1994</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="right">
-                        <div class="categoryButton">Others</div>
-                    </div>
-                </div>
-                <div class="todo">
-                    <div class="left">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="" checked>
-
-                        </div>
-                        <div class="desc">
-                            <div class="name">Name of the todo item</div>
-                            <div class="date">
-                                <i class="fa-solid fa-calendar-days"></i>
-                                <div class="dateItem">25/03/1994</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="right">
-                        <div class="categoryButton">Others</div>
-                    </div>
-                </div>
-                <div class="todo">
-                    <div class="left">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="" checked>
-
-                        </div>
-                        <div class="desc">
-                            <div class="name">Name of the todo item</div>
-                            <div class="date">
-                                <i class="fa-solid fa-calendar-days"></i>
-                                <div class="dateItem">25/03/1994</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="right">
-                        <div class="categoryButton">Others</div>
-                    </div>
-                </div>
             </div>
         </form>
 
@@ -150,7 +92,10 @@
 
 
 
-    <script src="/js/home.js"></script>
+    <script src="/js/home.js">
+
+    </script>
+
 </body>
 
 </html>
