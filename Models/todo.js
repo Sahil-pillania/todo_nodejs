@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const todoSchema = new Schema({
@@ -10,9 +10,9 @@ const todoSchema = new Schema({
     type: "string",
     required: true,
   },
-  date: { type: Date, required: true },
+  date: { type: "string", required: true },
 });
 
-const todos = mongoose.model("todo", todoSchema);
+const todo = mongoose.model("todo", todoSchema);
 
-module.exports = todos;
+module.exports = todo;
