@@ -12,51 +12,39 @@ const date = document.getElementById("date");
 // checkbox
 var checkboxes = document.getElementsByName("selection");
 
-// async function fetching() {
-//   const response = await fetch("/fetchallnotes");
-//   console.log(response);
-//   const data = await response.json();
-//   console.log(data);
-// }
-// setInterval(() => {
-//   fetching();
-// }, 500);
-// fetching();
+// saveItems.addEventListener("click", async (e) => {
+//   e.preventDefault();
+//   console.log("saving the items...", description.value, cat.value, date.value);
 
-saveItems.addEventListener("click", async (e) => {
-  e.preventDefault();
-  console.log("saving the items...", description.value, cat.value, date.value);
+//   if (
+//     cat.value !== undefined &&
+//     date.value !== undefined &&
+//     description.value !== undefined &&
+//     cat.value !== "" &&
+//     date.value !== "" &&
+//     description.value !== ""
+//   ) {
+//     try {
+//       var body = {
+//         description: description.value,
+//         category: cat.value,
+//         date: date.value,
+//       };
 
-  if (
-    cat.value !== undefined &&
-    date.value !== undefined &&
-    description.value !== undefined &&
-    cat.value !== "" &&
-    date.value !== "" &&
-    description.value !== ""
-  ) {
-    try {
-      var body = {
-        description: description.value,
-        category: cat.value,
-        date: date.value,
-      };
-      console.log("inside body ", body);
-
-      let res = await fetch("http://localhost:3000/save", {
-        Method: "POST",
-        Headers: {
-          "Content-Type": "application/json",
-        },
-        Body: JSON.stringify(body),
-      });
-    } catch (error) {
-      console.log("error", error);
-    }
-  } else {
-    alert("Please fill all the fields!");
-  }
-});
+//       let res = await fetch("/save", {
+//         Method: "POST",
+//         Headers: {
+//           "Content-Type": "application/json",
+//         },
+//         Body: JSON.stringify(body),
+//       });
+//     } catch (error) {
+//       console.log("error", error);
+//     }
+//   } else {
+//     alert("Please fill all the fields!");
+//   }
+// });
 
 deleteItems.addEventListener("click", async (e) => {
   e.preventDefault();
